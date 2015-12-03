@@ -1,5 +1,22 @@
+# Wiki Gauge
+
+Gauge to show live DOI Citation activity on Wikipedia. Runs on the Raspberry Pi Zero. See the [Crossref blog post](http://blog.crossref.org/2015/12/crossref-labs-plays-with-the-raspberry-pi-zero.html) for more info.
+
+!(http://blog.crossref.org/wp-content/uploads/2015/12/desk.jpg)
+
+To install:
+
+1. `apt-get install python-smbus`
+2. Clone this repository to, e.g. `/home/pi/wiki.gauge`
+3. To run: `python /home/pi/wiki.gauge/run.py`
+4. To run on startup: add the line `python /home/pi/wiki.gague/run.py &` to `/etc/rc.local`.
+
+
+## Adafruit Library
+
 This includes portions of the Adafruit PWM Servo library which is BSD licensed. See README-ADAFRUIT.md for details.
 
+Read about it here: https://learn.adafruit.com/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi/using-the-python-library
 
 ============
 Copyright (c) 2012-2013 Limor Fried, Kevin Townsend and Mikey Sklar for Adafruit Industries.
