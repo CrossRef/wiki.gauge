@@ -2,7 +2,7 @@
 
 Gauge to show live DOI Citation activity on Wikipedia. Runs on the Raspberry Pi Zero. See the [Crossref blog post](http://blog.crossref.org/2015/12/crossref-labs-plays-with-the-raspberry-pi-zero.html) for more info.
 
-!(http://blog.crossref.org/wp-content/uploads/2015/12/desk.jpg)
+![Wikipedia Gague](http://blog.crossref.org/wp-content/uploads/2015/12/desk.jpg)
 
 To install:
 
