@@ -4,13 +4,23 @@ Gauge to show live DOI Citation activity on Wikipedia. Runs on the Raspberry Pi 
 
 ![Wikipedia Gague](http://blog.crossref.org/wp-content/uploads/2015/12/desk.jpg)
 
-To install:
+## To install:
 
 1. `apt-get install python-smbus`
 2. Clone this repository to, e.g. `/home/pi/wiki.gauge`
 3. To run: `python /home/pi/wiki.gauge/run.py`
 4. To run on startup: add the line `python /home/pi/wiki.gague/run.py &` to `/etc/rc.local`.
 
+## How to make one
+
+Here's the shopping list for ours:
+
+1. [Raspberry Pi Zero](https://shop.pimoroni.com/products/raspberry-pi-zero)
+2. [USB Wireless Adapter](https://shop.pimoroni.com/products/official-raspberry-pi-wifi-dongle)
+3. A [servo](https://shop.pimoroni.com/products/ds-929mg-digital-servo)
+4. The [Adafruit Servo Board](https://shop.pimoroni.com/products/adafruit-16-channel-pwm-servo-hat-for-raspberry-pi-mini-kit)
+
+Solder the header pins onto the Raspberry Pi and Servo Board. Assemble.
 
 ## Adafruit Library
 
