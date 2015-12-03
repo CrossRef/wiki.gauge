@@ -12,8 +12,8 @@ servoMax = 600  # Max pulse length out of 4096
 citation_min = 0
 citation_max = 360
 
-value = 500
-current_value = 150
+value = servoMin
+current_value = servoMin
 step = 10
 
 def setServoPulse(channel, pulse):
@@ -32,16 +32,20 @@ def fetch_loop():
 
   global value
   while True:
-    print("Fetch")
-    # Get the second bucket, as the first one constantly changes.
-    history = requests.get("http://wikipedia.labs.crossref.org/status").json()['citation-history']
-    last_val = history[1]
-    print("History")
-    print(history)
-    per_hour = min(last_val * 12, servoMax)
-    proportion = (per_hour / float(citation_max))
-    value = proportion  * (servoMax - servoMin) + servoMin
-    print("Last value: %d, per hour: %d, proportion: %f, value: %d" % (last_val, per_hour, proportion, value))
+    try:
+      print("Fetch")
+      # Get the second bucket, as the first one constantly changes.
+      history = requests.get("http://wikipedia.labs.crossref.org/status").json()['citation-history']
+      last_val = history[1]
+      print("History")
+      print(history)
+      per_hour = min(last_val * 12, servoMax)
+      proportion = (per_hour / float(citation_max))
+      value = proportion  * (servoMax - servoMin) + servoMin
+      print("Last value: %d, per hour: %d, proportion: %f, value: %d" % (last_val, per_hour, proportion, value))
+    except Exception, e:
+      # If we get an error fetching ignore and try again next time. This will happen first time as the network is coming up.
+      print("Error %s" % e)
     
     # Bucket is updated every 5 minutes. Fetch every minute to minimise aliasing.
     time.sleep(60)
